@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My AI Friend</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        #chatbox { height: 400px; border: 2px solid #4CAF50; overflow-y: scroll; padding: 10px; margin: 20px auto; width: 80%; }
+        #userInput { width: 70%; padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; background: #4CAF50; color: white; border: none; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>🤖 My AI Assistant</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Ask me anything...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('userInput').value;
+            document.getElementById('chatbox').innerHTML += `<p><strong>You:</strong> ${input}</p>`;
+            
+            // Replace with YOUR magic link (we'll get this next!)
+            const response = await fetch('YOUR_MAGIC_LINK/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt: input })
+            });
+            
+            const data = await response.json();
+            document.getElementById('chatbox').innerHTML += `<p><strong>AI:</strong> ${data.reply}</p>`;
+            document.getElementById('userInput').value = '';
+        }
+    </script>
+</body>
+</html>
