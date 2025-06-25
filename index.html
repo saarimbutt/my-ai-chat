@@ -21,7 +21,7 @@
             document.getElementById('chatbox').innerHTML += `<p><strong>You:</strong> ${input}</p>`;
             
             // Replace with YOUR magic link (we'll get this next!)
-            const response = await fetch('YOUR_MAGIC_LINK/generate', {
+            const response = await fetch('https://two-toes-boil.loca.lt', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ prompt: input })
